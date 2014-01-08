@@ -1,4 +1,5 @@
-package org.edy.rom;
+package org.edy.rom.common;
+
 
 public class LocalizingUtil {
 

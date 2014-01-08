@@ -1,4 +1,4 @@
-package org.edy.rom;
+package org.edy.rom.data;
 
 import java.util.HashMap;
 import java.util.Map;

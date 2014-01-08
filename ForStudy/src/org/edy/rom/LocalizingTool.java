@@ -1,7 +1,7 @@
 package org.edy.rom;
 
-import java.util.Vector;
-
+import org.edy.rom.data.RomData;
+import org.edy.rom.input.ReadRom;
 
 /*
  *  1. 롬파일 읽기
@@ -26,7 +26,8 @@ public class LocalizingTool {
 	 * 4. byte형에서 String 형으로 변환된 16바이트의 데이터를 주소와 데이터의 쌍으로 Map에 저장한다.
 	 * 5. 파일 끝까지 읽었으면, 콘솔창에 출력하고 종료한다. 
 	 */
-	static private RomData romData = null;
+//	static private RomData romData = null;
+	private RomData romData = null;
 	
 	public LocalizingTool(){
 		romData = new RomData();
@@ -34,10 +35,13 @@ public class LocalizingTool {
 	
 	public void start(String readFileName){
 		
+		System.out.println("start readRom");
 		//롬 읽기
 		ReadRom readRom = new ReadRom(readFileName, romData);
 		readRom.readRom();
 		
+		System.out.println("end readRom");
+	
 		//읽은 롬을 콘솔에 출력
 		logRomData();
 		
@@ -46,7 +50,7 @@ public class LocalizingTool {
 	public void logRomData(){
 		
 		///////////////////////////////////////////////////////////////////////
-		System.out.println("========================================================start========================================");
+		System.out.println("========================================================logRomData start========================================");
 		///////////////////////////////////////////////////////////////////////
 		
 		String tmp = ""; //롬 주소 대입용 임시 변수
@@ -58,7 +62,7 @@ public class LocalizingTool {
 		}
 		
 		///////////////////////////////////////////////////////////////////
-		System.out.println("========================================================end========================================");
+		System.out.println("========================================================logRomData end========================================");
 //		System.out.println("addressline size : " + romData.sizeMapIndex());
 		System.out.println("romdata size : " + romData.sizeRomMap());
 		///////////////////////////////////////////////////////////////////
@@ -87,9 +91,10 @@ public class LocalizingTool {
 		// 롬파일 위치
 		String readFileName = "D:/han/";
 		
-		args = new String[2];
-		args[0] = readFileName + "MetalMax2Kai(Japan).gba";
-		args[1] = readFileName + "Nin0kuni(J).nds"; //nds는  헤더 파싱을 해야 될듯.. 안그럼 아마 무한 루프..
+		args = new String[3];
+		args[0] = readFileName + "MetalMax2Kai(J).gba";
+		args[1] = readFileName + "5400 - Ninokuni - Shikkoku no Madoushi (J).nds";
+		args[2] = readFileName + "FFT(J).iso";
 		
 		if(args.length < 1){
 			System.out.println("Usage : java DecimalToBinary number");
