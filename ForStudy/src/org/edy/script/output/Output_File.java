@@ -36,10 +36,12 @@ public class Output_File {
 
 		// String str[] = {Constans.Cmd.getCMD_0(), Constans.Cmd.getCMD_1()};
 
+		int size = output.size();
+		
 		switch (cmd) {
 
 		case "script":
-			for (int i = 0; i < output.size(); i++) {
+			for (int i = 0; i < size; i++) {
 				
 				System.out.println("output : " + output.get(i));
 				
@@ -54,7 +56,7 @@ public class Output_File {
 
 		case "font_table":
 			//순서가 홀수 주소 짝수 값 이다.. 즉 프로그램 상으론 짝수일 때 주소 홀수일때 값이 됨..
-			for (int i = 0; i < output.size(); i++) {
+			for (int i = 0; i < size; i++) {
 				
 				//이거..폰트테이블로 쓰려면 shift-jis 로 바꿔야 될듯 싶음..
 				System.out.println("output : " + output.get(i));
